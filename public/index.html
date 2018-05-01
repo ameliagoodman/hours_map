@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="nodeMap">
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/style.css" media="screen">
+    <title>36 Hours: Mapped</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+  </head>
+  <body ng-controller="mainController">
+    <div id="map"></div>
+    <div class="location_info">
+      <h2 id="location">Click a Marker to get started</h2>
+      <a target="_blank" id="link"></a>
+    </div>
+    <div id="footer">
+      <div id="left">
+        <h1>36 Hours Mapped</h1>
+      </div>
+      <div id="right">
+        Questions? email amelia.goodman1 [at] gmail.com</p>
+      </div>
+    </div>
+
+
+    <script src="/javascripts/jquery-3.3.1.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtCQ7PAzzJJ3s8-xVn1cFw-sdup8C7PKI&callback=initMap"
+    async defer></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.min.js"></script>
+    <script src="javascripts/app.js"></script>
+  </body>
+</html>
