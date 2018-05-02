@@ -23,7 +23,7 @@ router.get('/api/v1/maps', (req, res, next) => {
       return res.status(500).json({success: false, data: err});
     }
     // SQL Query > Select Data
-    const query = client.query('SELECT * FROM locations;');
+    const query = client.query('SELECT * FROM locations where pub_date not like \'%02\' and pub_date not like \'%03\' and pub_date not like \'%04\' and pub_date not like \'%05\' and pub_date not like \'%06\' and pub_date not like \'%07\';');
     // Stream results back one row at a time
     query.on('row', (row) => {
       results.push(row);
