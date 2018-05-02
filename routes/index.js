@@ -4,6 +4,7 @@ const pg = require('pg');
 const path = require('path');
 const connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/maps';
 
+
 /* GET home page. */
 router.get('/', (req, res, next) => {
   res.sendFile('index.html');
