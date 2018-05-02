@@ -3,6 +3,7 @@
   <head>
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <link rel="stylesheet" href="/stylesheets/style.css" media="screen">
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
     <title>36 Hours: Mapped</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
@@ -10,8 +11,8 @@
   <body ng-controller="mainController">
     <div id="map"></div>
     <div class="location_info">
-      <h2 id="location">{{location.name}}</h2>
-      <a target="_blank" ng-href="{{location.link}}" id="link">{{location.link}}</a>
+      <h2 id="location" ng-bind="{{location.name}}">{{location.name}}</h2>
+      <a target="_blank" ng-href="{{location.link}}" id="link"><p>{{location.link}}</p></a>
     </div>
     <div id="footer">
       <div id="left">
