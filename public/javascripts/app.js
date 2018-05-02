@@ -10,6 +10,9 @@ map = new google.maps.Map(document.getElementById('map'), {
 angular.module('nodeMap', [])
 .controller('mainController', ($scope, $http) => {
   $scope.mapData = {};
+  $scope.location = {'name': "Click a marker to get started",
+					 'link': ""
+					 };
   // Get all todos
   $http.get('/api/v1/maps')
   .success((data) => {
@@ -25,11 +28,11 @@ angular.module('nodeMap', [])
 			clickableIcons: true
 		});
 		marker.addListener('click', function() {
-		    $('#location').text(this.address_name);
-		    $('#link').attr("href", this.link);
-		    $('#link').text(this.link);
+			$scope.location = {'name': this.address_name,
+		    				   'link': this.link
+		    				  }
+		    $scope.$apply();
 		    map.panTo(this.getPosition());
-		    console.log(this.address_name);
 		});
     }
   })

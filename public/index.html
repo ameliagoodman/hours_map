@@ -10,8 +10,8 @@
   <body ng-controller="mainController">
     <div id="map"></div>
     <div class="location_info">
-      <h2 id="location">Click a Marker to get started</h2>
-      <a target="_blank" id="link"></a>
+      <h2 id="location">{{location.name}}</h2>
+      <a target="_blank" ng-href="{{location.link}}" id="link">{{location.link}}</a>
     </div>
     <div id="footer">
       <div id="left">
