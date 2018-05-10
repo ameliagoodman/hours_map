@@ -96,8 +96,7 @@ def scrape():
 
 def add_to_db(data):
 	# connect to db
-	# DATABASE_URL = os.environ['DATABASE_URL']
-	DATABASE_URL = "host='localhost' dbname='maps'"
+	DATABASE_URL = os.environ['DATABASE_URL']
 	conn = psycopg2.connect(DATABASE_URL)
 	cur = conn.cursor()
 	
