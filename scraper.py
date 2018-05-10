@@ -78,7 +78,7 @@ def scrape():
 					elif 'content_kicker' in  article['headline'].keys():
 						 if article['headline']['content_kicker'] == '36 Hours':
 						 	link = article['web_url']
-							locationFound = False
+						 	locationFound = False
 							for item in article['keywords']:
 								if item['value'] != 'Travel and Vacations' and item['name'] != 'subject' and not locationFound:
 									location = item['value']
