@@ -79,11 +79,11 @@ def scrape():
 						 if article['headline']['content_kicker'] == '36 Hours':
 						 	link = article['web_url']
 						 	locationFound = False
-							for item in article['keywords']:
-								if item['value'] != 'Travel and Vacations' and item['name'] != 'subject' and not locationFound:
-									location = item['value']
-									locationFound = True
-							archive[location] = link
+						 	for item in article['keywords']:
+						 		if item['value'] != 'Travel and Vacations' and item['name'] != 'subject' and not locationFound:
+						 			location = item['value']
+						 			locationFound = True
+				 			archive[location] = link
 					# to adjust for 2006 articles
 					# elif 'main' in article['headline'].keys():
 					# 	if '36 Hours' in article['headline']['main']
