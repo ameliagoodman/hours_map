@@ -7,10 +7,11 @@ from geopy.geocoders import Nominatim
 import datetime
 import schedule
 import time
+import logging
 
 
 def scrape():
-	print "beginning scrape at" + str(datetime.datetime.now())
+	logging.info("beginning scrape at " + str(datetime.datetime.now()))
 	now = datetime.datetime.now()
 	year = str(now.year)
 	month = str(now.month)
@@ -23,11 +24,11 @@ def scrape():
 	try:
 		r = requests.get(url, params=payload)
 	except requests.exceptions.RequestException as e:
-		print e
+		logging.error(e)
 		sys.exit(1)
 	# account for NYTime API limit
 	if r.status_code == 429:
-		print "API limit exceeded"
+		logging.error("API limit exceeded")
 		sys.exit(1)
 	
 	if "response" in r.json().keys():
@@ -126,13 +127,13 @@ def add_to_db(data):
 					conn.commit()
 					# print "added %s to db" %location
 				except (Exception, psycopg2.DatabaseError) as error:
-					print(error)
+					logging.error(error)
 					conn.rollback()
 		# close db connection
 		if conn is not None:
 			cur.close()
 			conn.close()
-	print "exiting scrape"
+	logging.info("exiting scrape")
 
 
 
