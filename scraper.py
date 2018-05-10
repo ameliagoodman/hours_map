@@ -6,7 +6,7 @@ import psycopg2
 from geopy.geocoders import Nominatim
 import datetime
 import schedule
-import time
+import time 
 
 
 def scrape():
