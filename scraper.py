@@ -6,11 +6,11 @@ import psycopg2
 from geopy.geocoders import Nominatim
 import datetime
 import schedule
-import time 
+import time
 
 
 def scrape():
-	print "beginning scrape at " + str(datetime.datetime.now())
+	print "beginning scrape at" + str(datetime.datetime.now())
 	now = datetime.datetime.now()
 	year = str(now.year)
 	month = str(now.month)
