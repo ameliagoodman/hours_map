@@ -137,7 +137,7 @@ def add_to_db(data):
 
 
 
-schedule.every(1).minutes.do(scrape)
+schedule.every().sunday.do(scrape)
 while True:
 	schedule.run_pending()
 	time.sleep(1)
