@@ -122,12 +122,11 @@ def add_to_db(data):
 						lon = lat_lon.longitude
 					else: 
 						continue
-				sql = "INSERT INTO locations(location, link, pub_date, lat, long) VALUES(%s, %s, %s, %s, %s)"
+				sql = "INSERT INTO articles(location, link, pub_month, pub_year, lat, long) VALUES(%s, %s, %s, %s, %s, %s)"
 				try:
-					pub_date = month + "-" + year
-					cur.execute(sql, (location, data[year][month][location], pub_date, lat, lon,))
+					cur.execute(sql, (location, data[year][month][location], month, year, lat, lon,))
 					conn.commit()
-					# print "added %s to db" %location
+					logging.info("added %s to db" %location)
 				except (Exception, psycopg2.DatabaseError) as error:
 					logging.error(error)
 					conn.rollback()
@@ -143,4 +142,3 @@ schedule.every().sunday.do(scrape)
 while True:
 	schedule.run_pending()
 	time.sleep(1)
-
