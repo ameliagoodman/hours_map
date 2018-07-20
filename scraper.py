@@ -47,7 +47,9 @@ def scrape():
 										location = item['value']
 										locationFound = True
 								if locationFound:
-									archive[location] = link
+									# to adjust for new 2018 'what to pack for ___ 36 hours'
+									if 'What to Pack' not in article['headline']['main']:
+										archive[location] = link
 							# to adjust for weird 2006 articles
 							elif '36 Hours' in article['headline']['kicker']:
 								link = article['web_url']

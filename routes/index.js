@@ -23,7 +23,7 @@ router.get('/api/v1/maps', (req, res, next) => {
       return res.status(500).json({success: false, data: err});
     }
     // SQL Query > Select Data
-    const query = client.query('SELECT * FROM articles where pub_year > 2008 order by pub_year, pub_month ASC;');
+    const query = client.query('SELECT * FROM locations where pub_year > 2008 order by pub_year, pub_month ASC;');
     // Stream results back one row at a time
     query.on('row', (row) => {
       results.push(row);
